@@ -65,6 +65,8 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+            {{-- ユーザ登録ページへのリンク --}}
+            {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
