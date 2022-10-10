@@ -16,12 +16,12 @@ class TasksController extends Controller
     public function index()
     {
         //$data = [];
-        $task = [];
-        //if (\Auth::id() === $task->user_id) {
+        $tasks = [];
         if (\Auth::check()) {
             $user = \Auth::user();
             $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(10);
-            
+            //$user = \Auth::user();
+            //$tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(10);
             $data = [
                 'user' => $user,
                 'tasks' => $tasks,
@@ -96,7 +96,7 @@ class TasksController extends Controller
         }
         
     else {
-        return view('welcome');
+        return redirect('/');
     }
     }
 
